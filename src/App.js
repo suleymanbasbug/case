@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Header from "./components/Header/Header";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container } from "react-bootstrap";
+import Posts from "./components/Posts/Posts";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import PostDetail from "./components/Posts/PostDetail";
+import { useState } from "react";
 function App() {
+  const [searchTerm, setSearchTerm] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Router>
+        <Header setSearchTerm={setSearchTerm} />
+        <Route
+          exact
+          path="/"
+          component={(props) => <Posts searchTerm={searchTerm} />}
+        />
+        <Route path="/post/:id" component={PostDetail} />
+      </Router>
+    </Container>
   );
 }
 

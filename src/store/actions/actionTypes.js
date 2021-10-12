@@ -1,0 +1,4 @@
+export const GET_POSTS_SUCCESS = "GET_POSTS_SUCCESS";
+export const GET_POSTS_START = "GET_POSTS_START";
+export const GET_POST_DETAIL = "GET_POST_DETAIL";
+export const GET_USER_DETAIL = "GET_USER_DETAIL";
